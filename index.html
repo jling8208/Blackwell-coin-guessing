@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blackwell 猜硬幣策略</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="workspace" aria-label="Blackwell 猜硬幣互動演示">
+      <div class="plot-panel">
+        <div class="plot-header">
+          <div>
+            <h1>Blackwell 猜硬幣策略</h1>
+            <p>輸入對手本回合結果，觀察 <span class="math"><span class="overline">ω</span><sub>t</sub></span> 與 <span class="math">c̃<sub>t</sub></span> 的軌跡。</p>
+          </div>
+          <div class="round-badge" id="roundBadge">第 0 回合</div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="strategyCanvas" width="720" height="720" aria-label="策略軌跡圖"></canvas>
+        </div>
+      </div>
+
+      <aside class="control-panel">
+        <section class="panel-block" aria-label="輸入">
+          <label for="opponentInput">對手結果</label>
+          <div class="input-row">
+            <input id="opponentInput" type="text" inputmode="text" autocomplete="off" placeholder="正面 或 反面">
+            <button id="submitButton" type="button">送出</button>
+          </div>
+          <div class="choice-row" aria-label="快速輸入">
+            <button class="choice-button" type="button" data-choice="正面">正面</button>
+            <button class="choice-button" type="button" data-choice="反面">反面</button>
+            <button id="resetButton" class="secondary-button" type="button">重置</button>
+          </div>
+          <p id="message" class="message">請輸入「正面」或「反面」。</p>
+        </section>
+
+        <section class="panel-block" aria-label="目前狀態">
+          <h2>目前狀態</h2>
+          <dl class="stats-grid">
+            <div>
+              <dt>猜正面機率</dt>
+              <dd id="probabilityText">50.00%</dd>
+            </div>
+            <div>
+              <dt>實際勝率 <span class="math"><span class="overline">c</span><sub>t</sub></span></dt>
+              <dd id="winRateText">0.00%</dd>
+            </div>
+            <div>
+              <dt>正面出現比例 <span class="math"><span class="overline">ω</span><sub>t</sub></span></dt>
+              <dd id="omegaText">0.50</dd>
+            </div>
+            <div>
+              <dt>期望值勝率 c̃<sub>t</sub></dt>
+              <dd id="cTildeText">0.50</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="panel-block" aria-label="歷史紀錄">
+          <div class="history-head">
+            <h2>歷史紀錄</h2>
+            <span id="recordCount">0 筆</span>
+          </div>
+          <div class="history-table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>回合</th>
+                  <th>對手</th>
+                  <th>猜測</th>
+                  <th>p</th>
+                  <th>結果</th>
+                </tr>
+              </thead>
+              <tbody id="historyBody">
+                <tr class="empty-row">
+                  <td colspan="5">尚無紀錄</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
