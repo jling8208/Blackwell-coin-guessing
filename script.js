@@ -184,6 +184,14 @@ function drawBackground(left, top, plotSize, px, py) {
   ctx.fillRect(left, top, plotSize, plotSize);
   ctx.strokeRect(left, top, plotSize, plotSize);
 
+  ctx.beginPath();
+  ctx.moveTo(px(0), py(1));
+  ctx.lineTo(px(1), py(1));
+  ctx.lineTo(px(0.5), py(0.5));
+  ctx.closePath();
+  ctx.fillStyle = "#d1d5db";
+  ctx.fill();
+
   ctx.strokeStyle = "#edf0f2";
   for (let i = 1; i < 10; i += 1) {
     const value = i / 10;

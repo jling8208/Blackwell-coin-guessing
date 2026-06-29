@@ -1,5 +1,7 @@
 # Blackwell 猜硬幣策略互動演示
 
+網址：[https://jling8208.github.io/Blackwell-coin-guessing/](https://jling8208.github.io/Blackwell-coin-guessing/)
+
 這是一個用來展示 Blackwell approachability 想法的互動網頁。情境是一個重複猜硬幣遊戲：每一回合，對手先決定硬幣是正面或反面，我們再根據過去紀錄用 Blackwell 策略決定本回合猜正面的機率。
 
 網頁會即時顯示目前的猜測、實際勝率，以及策略軌跡在平面上的移動。圖中的橫軸是目前為止對手出正面的比例，縱軸是策略對應的期望正確率平均。兩條對角線用來輔助觀察目標集合的邊界。
